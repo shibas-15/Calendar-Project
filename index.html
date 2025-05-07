@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2025 Calendar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>2025</h1>
+  <div class="calendar-container">
+    <!-- Month boxes inserted here with JS -->
+  </div>
+
+  <script>
+    const calendarContainer = document.querySelector(".calendar-container");
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const dayNames = ["S", "M", "T", "W", "T", "F", "S"];
+
+    function generateCalendar(year) {
+      for (let m = 0; m < 12; m++) {
+        const firstDay = new Date(year, m, 1).getDay();
+        const totalDays = new Date(year, m + 1, 0).getDate();
+
+        const monthDiv = document.createElement("div");
+        monthDiv.className = "month";
+
+        const title = document.createElement("div");
+        title.className = "month-name";
+        title.textContent = monthNames[m];
+        monthDiv.appendChild(title);
+
+        const dayHeader = document.createElement("div");
+        dayHeader.className = "days-header";
+        dayNames.forEach(d => {
+          const dEl = document.createElement("div");
+          dEl.textContent = d;
+          dayHeader.appendChild(dEl);
+        });
+        monthDiv.appendChild(dayHeader);
+
+        const dayGrid = document.createElement("div");
+        dayGrid.className = "day-grid";
+
+        for (let i = 0; i < firstDay; i++) {
+          const empty = document.createElement("div");
+          empty.className = "empty";
+          dayGrid.appendChild(empty);
+        }
+
+        for (let d = 1; d <= totalDays; d++) {
+          const day = document.createElement("div");
+          day.textContent = d;
+          dayGrid.appendChild(day);
+        }
+
+        monthDiv.appendChild(dayGrid);
+        calendarContainer.appendChild(monthDiv);
+      }
+    }
+
+    generateCalendar(2025);
+  </script>
+</body>
+</html>

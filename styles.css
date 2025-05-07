@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: 'Georgia', serif;
+    background: #f9f4f2;
+    color: #333;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+  
+  .calendar-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .month {
+    background-color: #f1e3d9;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  
+  .month-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .days-header, .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .days-header div {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .day-grid div {
+    padding: 4px 0;
+  }
+  
+  .empty {
+    visibility: hidden;
+  }
+  
